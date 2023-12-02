@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH << File.join(__dir__, '..', 'lib')
+
+require 'puzzle'
+require 'puzzle_input'
+
+input_file = File.join(__dir__, '..', 'input.txt')
+input = File.readlines(input_file).map(&:chomp)
+
+puzzle = Puzzle.new
+
+puts puzzle.part1(input)
+puts puzzle.part2(input)
