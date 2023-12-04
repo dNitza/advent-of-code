@@ -4,11 +4,14 @@
 $LOAD_PATH << File.join(__dir__, '..', 'lib')
 
 require 'puzzle'
+require 'benchmark'
 
 input_file = File.join(__dir__, '..', 'input.txt')
 input = File.readlines(input_file).map(&:chomp)
 
 puzzle = Puzzle.new
 
-puts puzzle.part1(input)
-puts puzzle.part2(input)
+Benchmark.bmbm do |x|
+  x.report("part 1") { puts puzzle.part1(input) }
+  x.report("part 2")  { puts puzzle.part2(input)  }
+end
